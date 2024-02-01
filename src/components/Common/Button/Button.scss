@@ -1,0 +1,21 @@
+@import '@/app/variables.scss';
+
+.button{
+    outline: none;
+    border: none;
+    background-color: $button-primary;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+}
+.iconType{
+    padding: 8px;
+}
+.button:hover{
+    cursor: pointer;
+}

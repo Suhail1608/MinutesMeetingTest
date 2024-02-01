@@ -1,0 +1,15 @@
+.addNewMeetingForm{
+    color: black;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    margin: 10px 20px;
+    max-height: 510px;
+    overflow-y: scroll;
+    .new-meeting-form{
+        display: flex;
+        flex-direction: column;
+        width: 450px;
+        gap: 10px;
+    }
+}

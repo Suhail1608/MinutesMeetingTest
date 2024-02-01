@@ -1,0 +1,21 @@
+@import '@/app/variables.scss';
+.tabs{
+    display: flex;
+    width: 100%;
+    gap:1px;
+}
+.tab{
+    display: flex;
+    background-color: $button-secondary;
+    color: black;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+.tab:hover{
+    cursor: pointer;
+}
+.active-tab{
+    background-color: $button-primary;
+}

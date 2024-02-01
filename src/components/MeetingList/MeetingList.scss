@@ -1,0 +1,45 @@
+.MeetingListComp{
+    margin: 0px 0px;
+}
+.MeetingSearch{
+    display: flex;
+    gap:8px;
+    padding: 10px 0px;
+    margin: 0px 10px;
+    
+}
+.MeetingListBox{
+    overflow-y: scroll;
+    height: 445px;
+    width: 100%;
+    .MeetingList{
+        display: flex;
+        margin: 0px 12px;
+        padding: 20px 0px;
+        flex-wrap: wrap;
+        gap: 40px;
+       
+       
+    }
+   
+}
+@media (max-width:670px) {
+    .MeetingListBox{
+        overflow-y: scroll;
+        height: 460px;
+        width: 100%;
+        .MeetingList{
+            display: flex;
+            margin: 0px 10px;
+            padding: 20px 0px;
+            flex-wrap: wrap;
+            gap: 40px;
+           
+           
+        }
+       
+    }
+    .MeetingListComp{
+        margin: 0px 0px;
+    }
+}

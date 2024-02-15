@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+model teams{
+  id Int @id @default(autoincrement())
+  district String
+  internalDistrict String
+  level String
+  teamId String 
+  pwd String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  meeting meeting[]
+
+}
+model meeting {
+  id Int @id @default(autoincrement())
+  title String
+  desc String
+  loc String
+  attendees String
+  img String @db.LongText
+  district String
+  verified Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  teamId Int
+  team teams @relation(fields: [teamId], references: [id])
+  // @@index([teamId],map: "meeting_teamId_fKey")
+}

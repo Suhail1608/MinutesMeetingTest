@@ -5,11 +5,12 @@
     padding-top: 20px;
     margin: 10px 20px;
     max-height: 510px;
-    overflow-y: scroll;
+    overflow-y: auto;
     .new-meeting-form{
         display: flex;
         flex-direction: column;
-        width: 450px;
+        width: 100%;
+        max-width: 450px;
         gap: 10px;
     }
 }

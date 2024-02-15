@@ -14,8 +14,36 @@
     color: white;
 }
 .iconType{
-    padding: 8px;
+    padding: 8px 14px;
 }
 .button:hover{
     cursor: pointer;
+}
+.button-sec{
+    outline: none;
+    border: none;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #222;
+    background-color: unset;
+}
+.button-sec:hover{
+    cursor: pointer;
+}
+
+.button:disabled{
+    opacity: 0.5;
+}
+.verifyBtn{
+    background-color: $verify;
+}
+.unVerifyBtn{
+    background-color: white;
+    color: $warning;
+    border: 2px solid $warning;
 }

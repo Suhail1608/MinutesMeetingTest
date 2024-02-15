@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `meeting` ADD COLUMN `dummy` INTEGER NOT NULL DEFAULT 2;

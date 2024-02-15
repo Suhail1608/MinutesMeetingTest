@@ -1,0 +1,30 @@
+/* styles.scss */
+
+.dateopt {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  
+  /* Optional: Style for focus state */
+  .dateopt:focus {
+    border-color: #007bff; /* Adjust color based on your design */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Add a subtle box-shadow for focus */
+  }
+  
+  /* Optional: Style for hover state */
+  .dateopt:hover {
+    background-color: #f0f0f0; /* Add a background color on hover if desired */
+  }
+  
+  /* Optional: Style for disabled state */
+  .dateopt:disabled {
+    background-color: #f8f8f8;
+    color: #aaa;
+    cursor: not-allowed;
+  }
+  

@@ -1,0 +1,24 @@
+@import '@/app/variables.scss';
+.adminLoginPage{
+    width: 100vw;
+    height: 100vh;
+    background-color: $primary;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .adminLoginForm{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        margin: 20px;
+        padding: 20px;
+        .loginForm{
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+    }
+}

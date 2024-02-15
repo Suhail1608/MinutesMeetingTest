@@ -1,0 +1,83 @@
+.meetingsPanel{
+    height: 90vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .uiBox{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap:8px;
+        padding-bottom: 8px;
+        .searchArea{
+            display: flex;
+           flex-grow: 1;
+        }
+    
+    }
+}
+.AdminMeetingListBox{
+    overflow-y: auto;
+    height: 100vh;
+    display: flex;
+    width: 100%;
+   // background-color: rebeccapurple;
+    .AdminMeetingList{
+        display: flex;
+        margin: 0px 4px;
+        padding: 10px 0px;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 40px;
+        height: fit-content;
+       //background-color: red;
+       
+    }
+   
+}
+@media (max-width:670px) {
+    .AdminMeetingListBox{
+        overflow-y: auto;
+        height: 100vh;
+        width: 100%;
+        .AdminMeetingList{
+            display: flex;
+            margin: 0px 4px;
+            padding: 20px 4px;
+            flex-wrap: wrap;
+            height: fit-content;
+            gap: 40px;
+           
+           
+        }
+       
+    }
+  .meetingsPanel{
+    height: 85vh;
+  }
+}
+
+.filterPanel{
+    // background-color: rebeccapurple;
+    display: flex;
+    
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-bottom: 8px;
+    .filterUi{
+        font-weight: 600;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+     
+        .filterSelect{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
+            gap:10px;
+            max-width: 240px;
+        }
+    }
+}

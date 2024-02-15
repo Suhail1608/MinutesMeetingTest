@@ -1,0 +1,31 @@
+.MeetingPanelLayout{
+    display: flex;
+    flex-direction: column;
+    height:100vh;
+    width: 100vw;
+    overflow-y: hidden;
+    // background-color: red;
+    .MeetingPanelContainer{
+        display: flex;
+      
+        //height: auto;
+        height: 90vh;
+        
+    // background-color: rgba(137, 43, 226, 0.267);
+    }
+   
+}
+@media (max-width:400px) {
+    .MeetingPanelLayout{
+        height: 90vh;
+}
+}
+
+// @media (max-height:940px) {
+//     .MeetingPanelLayout{
+//         //height: auto;
+//        // height: 100vh;
+        
+//     // background-color: rgba(137, 43, 226, 0.267);
+//     }
+// }

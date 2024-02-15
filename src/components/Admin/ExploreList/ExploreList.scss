@@ -1,0 +1,48 @@
+@import '@/app/variables.scss';
+.exploreList{
+    // margin-top: 8px;
+   /// border-radius:10px;
+    height: 100%;
+    //background-color: aqua;
+    //background-color: aqua;
+    overflow-y: auto;
+   
+    table{
+        width: 100%;
+        //background-color: rgb(0, 0, 0);
+       
+        thead{
+            position: sticky;
+            top: 0px;
+            tr{
+                background-color: $primary;
+                color: white;
+                th{
+                    padding: 16px;
+                }
+            }
+        }
+        
+        tbody{
+          
+            tr{
+               
+                background-color: $lg;
+                td{
+                    height: 50px;
+                   text-wrap:pretty;
+                   word-break:break-all;
+                   font-size: 1rem;
+                    padding: 4px;
+                }
+            }
+            tr:hover{
+                cursor: pointer;
+            }
+            tr:nth-child(even){
+                background-color: $lb
+             }
+        }
+        
+    }
+}

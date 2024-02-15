@@ -1,1 +1,41 @@
+/* styles.scss */
 
+.selectOpt {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  /* Customize the appearance of the dropdown arrow */
+  .selectOpt::-ms-expand,
+  .selectOpt::-ms-expand {
+    display: none;
+  }
+  
+  .selectOpt:after {
+    content: '\25BC'; /* Unicode character for a downward arrow */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  
+  /* Style for selected option */
+  .selectOpt option {
+    background-color: #fff;
+  }
+  
+  /* Hover style for options */
+  .selectOpt option:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Active (clicked) style for options */
+  .selectOpt option:checked {
+    background-color: #e0e0e0;
+  }
+  

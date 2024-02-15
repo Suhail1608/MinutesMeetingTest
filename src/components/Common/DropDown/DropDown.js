@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import './DropDown.scss'
 const DropDown = ({options, value,setValue}) => {

@@ -1,0 +1,42 @@
+@import "@/app/variables.scss";
+.file-box{
+    position: relative;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    font-size: 15px;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    color: black;
+    background-color: white;
+    appearance: none;
+    
+    border: 1px solid black;
+    .file-input{
+        padding: 10px;
+    }
+    .file-input::file-selector-button {
+        display: none;
+    }
+}
+
+.file-upload-btn{
+    background-color: $button-primary;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    width: 100px;
+    justify-content: center;
+    border-left: 1px solid black;
+}
+.file-upload-btn:hover{
+    cursor: pointer;
+}

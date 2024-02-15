@@ -1,0 +1,45 @@
+@import '@/app/variables.scss';
+.meetingInfoContainer{
+    background-color: white;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    .meetingInfoBox{
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+        gap:0px;
+       
+        padding: 10px 14px;
+        padding-bottom: 20px;
+        width: 80vw;
+        min-height: 100vh;
+        .d-row{
+            background-color: white;
+            border: 2px solid $primary;
+            height: fit-content;
+            align-items: center;
+            display: flex;
+            gap: 8px;
+            .d-label{
+                min-width: 120px;
+                // color: white;
+                padding: 10px;
+            }
+        }
+        .imageHolder{
+            width: 100%;
+            height: auto;
+            display: flex;
+            overflow: hidden;
+            justify-content: center;
+            .infoImg{
+                display: flex;
+                width: 100%;
+                max-width: 400px;
+                height:auto;
+            }
+        }
+        
+    }
+}

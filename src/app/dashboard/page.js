@@ -10,4 +10,4 @@ const Redirect = ({params}) => {
   )
 }
 
-export default Redirect
+export default  Redirect

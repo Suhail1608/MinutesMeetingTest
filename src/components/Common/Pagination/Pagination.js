@@ -4,6 +4,7 @@ import "./styles.scss"
 import { useSearchParams } from 'next/navigation'
 const Pagination = ({count,page,setPage}) => {
   const query = useSearchParams()
+  const p = parseInt(query.get("page"))
   function gotoPage(page){
     const url = new URL(window.location.href);
     url.searchParams.set('page', page);
@@ -29,7 +30,8 @@ const Pagination = ({count,page,setPage}) => {
    
   },[page])
   useEffect(()=>{
-   setPage(0)
+    //alert(Math.floor(totalCount/10))
+    setPage(0)
   },[query.get("q")])
   return (
     <div className='paginationBox'>

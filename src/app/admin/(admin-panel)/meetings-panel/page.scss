@@ -1,9 +1,10 @@
 .meetingsPanel{
-    height: 90vh;
+    height: calc(100vh - 60px);
     padding: 10px;
     display: flex;
     flex-direction: column;
     width: 100%;
+    //background-color: aqua;
     .uiBox{
         display: flex;
         flex-wrap: wrap;
@@ -19,7 +20,7 @@
 }
 .AdminMeetingListBox{
     overflow-y: auto;
-    height: 100vh;
+    height: 100%;
     display: flex;
     width: 100%;
    // background-color: rebeccapurple;
@@ -39,7 +40,7 @@
 @media (max-width:670px) {
     .AdminMeetingListBox{
         overflow-y: auto;
-        height: 100vh;
+        height: calc(100vh - 60px);
         width: 100%;
         .AdminMeetingList{
             display: flex;
@@ -54,7 +55,7 @@
        
     }
   .meetingsPanel{
-    height: 85vh;
+    height:calc(100vh - 120px);
   }
 }
 

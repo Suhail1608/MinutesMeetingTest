@@ -12,6 +12,7 @@ const AdminLoginPage = () => {
     function handleAdminLogin(e){
       e.preventDefault()
       if(adminId === "admin" && pwd === "123"){
+        localStorage.setItem("admin",true)
         router.push("admin/meetings-panel")
       }else{
         setErr(true)

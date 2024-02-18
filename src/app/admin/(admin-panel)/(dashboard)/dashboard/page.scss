@@ -1,0 +1,99 @@
+.adminDashboardPage {
+    //background-color: #ff0000; /* Dark background color */
+    max-height:calc(100vh - 60px); /* 100% viewport height */
+    min-height: calc(100%);
+    //border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    overflow-y: auto;
+
+    
+  
+    .adminDashboard {
+      width: 100%; /* Adjust the width as needed */
+      //height: calc(100vh - 60px); /* Adjust the height as needed */
+      display: flex;
+      flex-direction: row;
+      height: fit-content;
+      overflow: auto;
+      //background-color: #e95555; /* Slightly lighter background color */
+      border-radius: 10px; /* Rounded corners */
+      //overflow: hidden; /* Ensure overflow is hidden */
+      padding-bottom: 20px;
+     
+      // Left Box
+      .meetingsTab {
+        display: flex;
+        flex-direction: column;
+        width: 60%; /* Adjust the width as needed */
+        padding: 10px; /* Add some padding for spacing */
+        //background-color: aqua;
+        height: fit-content;
+        .analyticBox {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          background-color: #ffffff;
+          padding: 20px;
+          border-radius: 10px;
+          //min-height: 200px;
+          margin-bottom: 10px;
+          // Add additional styling for the analyticBox as needed
+        }
+        @media (max-width:600px) {
+          .analyticBox{
+            padding: 20px 20px;
+          }
+        }
+  
+        .tableBox {
+          width: 100%;
+          //flex-grow: 1; /* Allow the tableBox to grow and take available space */
+          padding: 8px;
+          
+          height: fit-content;
+          box-shadow: 0 0 5px 5px rgba(128, 128, 128, 0.438);
+          background-color: #ffffff; /* TableBox background color */
+          border-radius: 10px; /* Rounded corners */
+          margin-top: 20px; /* Add some spacing between analyticBox and tableBox */
+        }
+      }
+      @media (max-width:600px) {
+        .meetingsTab{
+          padding: 10px;
+        }
+      }
+  
+      // Right Box
+      .performaceTab {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1; /* Allow the performaceTab to grow and take available space */
+        padding: 0px;
+        margin: 10px;
+        min-height: 100vh;
+        //background-color: #1c1468; /* PerformaceTab background color */
+        border-radius: 10px; /* Rounded corners */
+        margin-left: 10px; /* Add some spacing between left and right boxes */
+      }
+      @media (max-width:1000px) {
+        // .performaceTab {
+        // // display: none;
+        // }
+        .meetingsTab{
+          width: 100%;
+          
+        }
+      }
+    }
+  }
+  @media (max-width:600px) {
+    .adminDashboardPage{
+      .adminDashboard{
+        flex-direction: column;
+        padding-bottom: 120px;
+      }
+    }
+  }
+  

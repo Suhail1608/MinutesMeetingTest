@@ -24,7 +24,7 @@ model teams{
 model meeting {
   id Int @id @default(autoincrement())
   title String
-  desc String
+  desc String @db.VarChar(300)
   loc String
   attendees String
   img String @db.LongText

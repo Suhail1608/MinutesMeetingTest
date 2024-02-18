@@ -174,14 +174,18 @@ export const getTeamMeetings= async (id, sortType, search) =>{
 } 
 
 //////admin stuff///////
-export const getAllTeamMeets = async (search, sortType, page, dist,teamId, fromDate, toDate) => {
+export const getAllTeamMeets = async (search, sortType, page, dist,teamId, fromDate, toDate,verified) => {
     try {
         const whereCondition = {
             title: {
                 contains: search,
             },
         };
-
+        if(verified !== ""){
+            whereCondition.verified = {
+                equals:verified
+            }
+        }
         if (dist !== "") {
             whereCondition.district = {
                 equals: dist,
@@ -233,14 +237,18 @@ export const getAllDistricts = async (search, sortType,page,teamId,fromDate, toD
         prisma.$disconnect()
     }
 }
-export const getAllTeamMeetsCount = async (search, dist,teamId, fromDate, toDate) => {
+export const getAllTeamMeetsCount = async (search, dist,teamId, fromDate, toDate,verified) => {
     try {
         const whereCondition = {
             title: {
                 contains: search,
             },
         };
-
+        if(verified !== ""){
+            whereCondition.verified = {
+                equals:verified
+            }
+        }
         if (dist !== "") {
             whereCondition.district = {
                 equals: dist,
@@ -271,3 +279,121 @@ export const getAllTeamMeetsCount = async (search, dist,teamId, fromDate, toDate
         await prisma.$disconnect();
     }
 };
+
+export const getMeet= async (id) =>{
+    try{
+        const queryOutput = await prisma.meeting.findUnique({
+            where:{
+                id:id,
+               
+                
+            },
+        })
+        console.log(queryOutput)
+        return queryOutput
+    }
+    catch(err){
+        console.log(err)
+    }finally{
+        prisma.$disconnect()
+    }
+} 
+
+// export const getVerifiedMeetCount= async () =>{
+//     try{
+//         const queryOutput = await prisma.meeting.count({
+//             where:{
+//                 verified:true, 
+//             },
+//         })
+//         console.log(queryOutput)
+//         return queryOutput
+//     }
+//     catch(err){
+//         console.log(err)
+//     }finally{
+//         prisma.$disconnect()
+//     }
+// } 
+// export const getVerifiedMeet= async (search, sortType, page, dist, fromDate, toDate) =>{
+//     try{
+//         const whereCondition = {
+//             title: {
+//                 contains: search,
+                
+//             },
+//             verified:true, 
+//         };
+
+//         if (dist !== "") {
+//             whereCondition.district = {
+//                 equals: dist,
+//             };
+//         }
+//         if(fromDate != "" && toDate !=""){
+//             whereCondition.createdAt = {
+//                 gte: new Date(fromDate),
+//                 lte: new Date(toDate),
+//             }
+//         }
+//         const queryOutput = await prisma.meeting.findMany({
+//             where: whereCondition,
+//         })
+//         console.log(queryOutput)
+//         return queryOutput
+//     }
+//     catch(err){
+//         console.log(err)
+//     }finally{
+//         prisma.$disconnect()
+//     }
+// } 
+// export const getUnverifiedMeetCount= async () =>{
+//     try{
+//         const queryOutput = await prisma.meeting.count({
+//             where:{
+//                 verified:false, 
+//             },
+//         })
+//         console.log(queryOutput)
+//         return queryOutput
+//     }
+//     catch(err){
+//         console.log(err)
+//     }finally{
+//         prisma.$disconnect()
+//     }
+// } 
+// export const getUnverifiedMeet= async (search, sortType, page, dist, fromDate, toDate) =>{
+//     try{
+//         const whereCondition = {
+//             title: {
+//                 contains: search,
+                
+//             },
+//             verified:false, 
+//         };
+
+//         if (dist !== "") {
+//             whereCondition.district = {
+//                 equals: dist,
+//             };
+//         }
+//         if(fromDate != "" && toDate !=""){
+//             whereCondition.createdAt = {
+//                 gte: new Date(fromDate),
+//                 lte: new Date(toDate),
+//             }
+//         }
+//         const queryOutput = await prisma.meeting.findMany({
+//             where: whereCondition,
+//         })
+//         console.log(queryOutput)
+//         return queryOutput
+//     }
+//     catch(err){
+//         console.log(err)
+//     }finally{
+//         prisma.$disconnect()
+//     }
+// } 

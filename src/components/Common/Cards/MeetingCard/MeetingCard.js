@@ -10,9 +10,12 @@ import Verified from '@/assets/icons/Verified.svg'
 import Warning from '@/assets/icons/Warning.svg'
 import { updateTick } from '../../../../../utils/setData'
 import LoaderComp from '../../LoaderComp/LoaderComp'
+import { usePathname, useRouter } from 'next/navigation'
 const MeetingCard = ({meetingData, isAdmin}) => {
     const thumbnail = meetingData.img ? meetingData.img : MeetingThumb
-    const [showModal, setShowModal] = useState(false)
+    //const [showModal, setShowModal] = useState(false)
+    const router = useRouter()
+    const pathname = usePathname()
     const [verified, setVerified] = useState(meetingData.verified)
     const [loading, setLoading] = useState(false)
     async function handleVerify() {
@@ -20,6 +23,10 @@ const MeetingCard = ({meetingData, isAdmin}) => {
         setVerified(!verified)
         await updateTick(meetingData.id, !verified)
         setLoading(false)
+    }
+    function handleView(){
+        setLoading(true)
+        router.push(`${pathname}/meeting-page/${meetingData.id}`)
     }
   return (
     <><div className='meeting-card'>
@@ -41,7 +48,7 @@ const MeetingCard = ({meetingData, isAdmin}) => {
     <div className='meeting-right'>
        
         <div className='meeting-button'>
-            <Button cb={()=>{setShowModal(!showModal)}} label={"View"}/>
+            <Button cb={()=>{handleView()}} label={"View"}/>
             {!isAdmin &&
             <Button label={"Edit"}/>}
             {isAdmin &&
@@ -52,7 +59,7 @@ const MeetingCard = ({meetingData, isAdmin}) => {
     </div>
     
 </div>
-<Modal setShow={setShowModal} show={showModal}><MeetingInfoBox data={meetingData}/></Modal>
+{/* <Modal setShow={setShowModal} show={showModal}><MeetingInfoBox data={meetingData}/></Modal> */}
 <LoaderComp show={loading}/></>
   )
 }

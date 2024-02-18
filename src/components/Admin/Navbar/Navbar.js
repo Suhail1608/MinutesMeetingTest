@@ -6,7 +6,7 @@ const Navbar = ({navItems}) => {
     <div className='navbar'>
       <div className='navmenu'>
         {navItems.map((navitem)=>{
-          return(<Link className='navitem' href={navitem.value} key={navItems.value}>{navitem.label}</Link>)
+          return(<Link key={navitem.value} className='navitem' href={navitem.value}>{navitem.label}</Link>)
         })}
       </div>
     </div>

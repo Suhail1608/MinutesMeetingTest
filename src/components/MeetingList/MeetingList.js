@@ -30,7 +30,7 @@ const MeetingList = ({searchParams}) => {
     const defaultToDate = new Date().toISOString();
     useEffect(()=>{
       const getCount = async () =>{
-        const c = await getAllTeamMeetsCount(search,"",teamId,defaultFromDate,defaultToDate)
+        const c = await getAllTeamMeetsCount(search,"",teamId,defaultFromDate,defaultToDate,"")
         setTotalCount(c)
         setCount(Math.ceil(c/10))
       }
@@ -44,12 +44,17 @@ const MeetingList = ({searchParams}) => {
 
           const sort = query.get("sort") ? query.get("sort") : "desc"
           const search = query.get("q") ? query.get("q") : ""
-          const data = await getAllTeamMeets(search,sort,page*10,"",teamId,defaultFromDate,defaultToDate)
+          const data = await getAllTeamMeets(search,sort,page*10,"",teamId,defaultFromDate,defaultToDate,"")
           setMeetings(data)
           setLoading(false)
       }
       getData()
     },[query])
+    useEffect(()=>{
+      const url = new URL(window.location.href);
+      url.searchParams.delete('q');
+      window.history.replaceState({}, '', url.toString());
+    },[])
     function handleSort(){
      
       const sortType = sort===true ? "desc" : "asc"
@@ -60,18 +65,23 @@ const MeetingList = ({searchParams}) => {
     }
     function handleSearch(){
       setSort(false)
-     if(search !==""){
-      const url = pathname
-      router.push(pathname+"?q="+search)
-     }
-     else{
-      return router.push(pathname)
-     }
+      if(search !==""){
+        //router.push(pathname+"?q="+search)
+        const url = new URL(window.location.href);
+        url.searchParams.set('q', search);
+        window.history.replaceState({}, '', url.toString());
+       }
+       else{
+        //return router.push(pathname)
+        const url = new URL(window.location.href);
+        url.searchParams.delete('q');
+        window.history.replaceState({}, '', url.toString());
+       }
     }
   return (
     <>
     <div className='MeetingListComp'>
-      <div className='uiBox'> {totalCount > 10 &&<Pagination setPage={setPage} count={count} page={page} />}</div>
+      <div className='uiBox'> {totalCount > 10 &&<Pagination setPage={setPage} count={count} page={page}/>}</div>
      <div className='MeetingSearch' onKeyDown={(e)=>{if(e.key==="Enter"){handleSearch()}}}>
                 <InputBox  placeholder={"Search"} value={search} setValue={setSearch}/>
                 <Button  cb={()=>{handleSearch()}} icon={<Image src={SearchIcon} alt=''></Image>} iconType/>

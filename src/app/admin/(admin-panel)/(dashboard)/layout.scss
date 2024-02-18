@@ -1,0 +1,10 @@
+.adminDashboardLayout{
+    height: calc(100% - 0px);
+    //background-color: aqua;
+    overflow-y: hidden;
+}
+@media (max-width:600px) {
+    .adminDashboardLayout{
+        height: calc(100% - 0px);
+    }
+}

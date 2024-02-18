@@ -53,10 +53,16 @@ const MeetingsPanel = () => {
   function handleSearch(){
    
    if(search !==""){
-    router.push(pathname+"?q="+search)
+    //router.push(pathname+"?q="+search)
+    const url = new URL(window.location.href);
+    url.searchParams.set('q', search);
+    window.history.replaceState({}, '', url.toString());
    }
    else{
-    return router.push(pathname)
+    //return router.push(pathname)
+    const url = new URL(window.location.href);
+    url.searchParams.delete('q');
+    window.history.replaceState({}, '', url.toString());
    }
    setSort(true)
    
@@ -70,7 +76,7 @@ const MeetingsPanel = () => {
   useEffect(()=>{
     const getCount = async () =>{
      
-      const c = await getAllTeamMeetsCount(search,districtId,"", filter.fromDate,filter.toDate)
+      const c = await getAllTeamMeetsCount(search,districtId,"", filter.fromDate,filter.toDate,"")
       
       setTotalCount(c)
       setCount(Math.ceil(c/10))
@@ -83,7 +89,7 @@ const MeetingsPanel = () => {
       setLoading(true)
       const sort = query.get("sort") ? query.get("sort") :"desc"
       const q = query.get("q") ? query.get("q") :""
-      const data = await getAllTeamMeets(q, sort,page*10, districtId,"", filter.fromDate,filter.toDate)
+      const data = await getAllTeamMeets(q, sort,page*10, districtId,"", filter.fromDate,filter.toDate,"")
       
       setAllMeets(data)
       setLoading(false)
@@ -98,7 +104,9 @@ const MeetingsPanel = () => {
    
       
     }
-    
+    const url = new URL(window.location.href);
+    url.searchParams.delete('q');
+    window.history.replaceState({}, '', url.toString());
     getData()
 
   },[])
@@ -113,20 +121,20 @@ const MeetingsPanel = () => {
         <div className='searchArea'>
         <InputBox value={search} setValue={setSearch} placeholder={"Search"}/>
         <Button cb={()=>{handleSearch()}}
-        iconType icon={<Image src={searchIcon} width={30}></Image>}
+        iconType icon={<Image src={searchIcon} width={30} alt=''></Image>}
         secondary
         />
          <Button cb={()=>{handleSort()}}
-        iconType icon={<Image src={sortIcon} width={30}></Image>}
+        iconType icon={<Image src={sortIcon} width={30} alt=''></Image>}
         secondary
         />
         <Button cb={()=>{handleShowFilter()}}
-        iconType icon={<Image src={filterIcon} width={30}></Image>}
+        iconType icon={<Image src={filterIcon} width={30} alt=''></Image>}
         secondary
         
         />
         </div>
-        {totalCount > 10 &&<Pagination setPage={setPage} count={count} page={page} />}
+        {<Pagination setPage={setPage} count={count} page={page}/>}
         
       </div>
       {showFilter &&

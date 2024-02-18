@@ -1,6 +1,8 @@
+'use client'
 import Navbar from '@/components/Dashboard/Navbar/Navbar'
 import React from 'react'
 import './layout.scss'
+import userAuth from '../auth/UserGuard/UserGuard'
 const layout = ({children}) => {
   
   return (
@@ -12,4 +14,4 @@ const layout = ({children}) => {
   )
 }
 
-export default layout
+export default userAuth(layout)

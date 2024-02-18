@@ -1,0 +1,38 @@
+.analyticCard{
+  
+    padding: 12px;
+    background-color: white;
+    min-height: 140px;
+    height: fit-content;
+    width: 100%;
+    max-width: 220px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 0 8px 3px rgba(128, 128, 128, 0.838);
+    .analyticHeading{
+        font-weight: bold;
+        font-size: 15px;
+        //color: black;
+        padding-bottom: 4px;
+        border-bottom: 1px solid white;
+    }
+    .analyticLeftBox{
+        .analyticTotalNum{
+            width: 100%;
+            text-wrap:stable;word-break: break-all;
+            font-size: 40px;
+            font-weight: 600;
+        }
+    }
+    .analyticRightBox{
+
+    }
+}
+.analyticCard:hover{
+    cursor: pointer;
+}
+@media (max-width:600px) {
+    .analyticCard{
+        max-width: 300px;
+    }
+}

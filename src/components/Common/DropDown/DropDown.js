@@ -6,7 +6,7 @@ const DropDown = ({options, value,setValue}) => {
     <>
     <select id='selectOpt' className='selectOpt' value={value} onChange={(e)=>{setValue(e.target.value)}}>
         {options.map((option)=>{
-            return <option value={option.value}>{option.label}</option>
+            return <option key={option.value} value={option.value}>{option.label}</option>
         })}
     </select>
     </>

@@ -34,12 +34,18 @@ const ExploreMeetings = ({params}) => {
   
   function handleSearch(){
    
-   if(search !==""){
-    router.push(pathname+"?q="+search)
-   }
-   else{
-    return router.push(pathname)
-   }
+    if(search !==""){
+      //router.push(pathname+"?q="+search)
+      const url = new URL(window.location.href);
+      url.searchParams.set('q', search);
+      window.history.replaceState({}, '', url.toString());
+     }
+     else{
+      //return router.push(pathname)
+      const url = new URL(window.location.href);
+      url.searchParams.delete('q');
+      window.history.replaceState({}, '', url.toString());
+     }
    setSort(false)
    
   }
@@ -84,15 +90,15 @@ const ExploreMeetings = ({params}) => {
         <div className='searchArea'>
           <InputBox value={search} setValue={setSearch} placeholder={"Search"}/>
           <Button cb={handleSearch}
-          iconType icon={<Image src={searchIcon} width={30}></Image>}
+          iconType icon={<Image src={searchIcon} width={30} alt=''></Image>}
           secondary
         />
         <Button 
-        iconType icon={<Image src={sortIcon} width={30}></Image>}
+        iconType icon={<Image src={sortIcon} width={30} alt=''></Image>}
         secondary
         />
         </div>
-        {totalCount >10 &&<Pagination setPage={setPage} count={count} page={page} />}
+        {<Pagination setPage={setPage} count={count} page={page} totalCount={totalCount}/>}
         {/* <Button 
         iconType icon={<Image src={filterIcon} width={30}></Image>}
         secondary
